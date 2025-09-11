@@ -1,0 +1,60 @@
+[
+ {
+  "table":"ACMDCLSRC",
+  "data":
+  [
+   {
+    "DCLNAME":"ZI_PARAMETERVALUETABLE",
+    "AS4LOCAL":"A",
+    "AS4USER":"SAP_CUSTOMER",
+    "AS4DATE":"2025-09-11",
+    "AS4TIME":"13:02:44",
+    "SOURCE":"@MappingRole: true\r\ndefine role ZI_ParameterValueTable {\r\n  grant select on ZI_ParameterValueTable\r\n  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_PARAMETERVALUETABLE' );\r\n}",
+    "PARENTNAME":"",
+    "ABAP_LANGUAGE_VERSION":"5"
+   }
+  ]
+ },
+ {
+  "table":"ACMDCLSRCT",
+  "data":
+  [
+   {
+    "DCLNAME":"ZI_PARAMETERVALUETABLE",
+    "DCLLANGUAGE":"T",
+    "AS4LOCAL":"A",
+    "DDTEXT":"Mapping Role for ZI_ParameterValueTable"
+   }
+  ]
+ },
+ {
+  "table":"TADIR",
+  "data":
+  [
+   {
+    "PGMID":"R3TR",
+    "OBJECT":"DCLS",
+    "OBJ_NAME":"ZI_PARAMETERVALUETABLE",
+    "KORRNUM":"",
+    "SRCSYSTEM":"...",
+    "AUTHOR":"SAP_CUSTOMER",
+    "SRCDEP":"",
+    "DEVCLASS":"ZCLDOBJ_A_PARAM",
+    "GENFLAG":"",
+    "EDTFLAG":"",
+    "CPROJECT":" L",
+    "MASTERLANG":"T",
+    "VERSID":"",
+    "PAKNOCHECK":"",
+    "OBJSTABLTY":"",
+    "COMPONENT":"",
+    "CRELEASE":"",
+    "DELFLAG":"",
+    "TRANSLTTXT":"",
+    "CREATED_ON":"2025-09-11",
+    "CHECK_DATE":"2025-09-11",
+    "CHECK_CFG":""
+   }
+  ]
+ }
+]
