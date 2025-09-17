@@ -1,4 +1,4 @@
-CLASS zcldobj_cl_ballog DEFINITION
+  CLASS zcldobj_cl_ballog DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
@@ -25,7 +25,8 @@ CLASS zcldobj_cl_ballog DEFINITION
                     !variable_3 TYPE if_bali_message_setter=>ty_variable OPTIONAL
                     !variable_4 TYPE if_bali_message_setter=>ty_variable OPTIONAL,
 
-      save_log RETURNING VALUE(rv_result) TYPE if_bali_log=>ty_handle,
+      save_log IMPORTING iv_jobapp        TYPE abap_boolean OPTIONAL
+               RETURNING VALUE(rv_result) TYPE if_bali_log=>ty_handle,
 
       read_messages IMPORTING iv_handle   TYPE if_bali_log=>ty_handle
                     EXPORTING et_messages TYPE if_bali_log=>ty_item_table.
