@@ -3,6 +3,7 @@
         " Create log object
         mo_log = cl_bali_log=>create( ).
 
+
         " Create and set header
         DATA(lo_header) = cl_bali_header_setter=>create( object      = iv_object
                                                          subobject   = iv_subobject
