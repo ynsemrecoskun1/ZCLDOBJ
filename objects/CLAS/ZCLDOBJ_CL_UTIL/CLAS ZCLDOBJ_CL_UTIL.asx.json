@@ -4,7 +4,7 @@
   "data":
   [
    {
-    "TYPENAME":"ZCLDOBJ_CL_PARAMETER",
+    "TYPENAME":"ZCLDOBJ_CL_UTIL",
     "STATE":"A",
     "TYPEKIND":"CLAS"
    }
@@ -15,9 +15,9 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
     "CLSTYPE":0,
-    "UUID":"+hY+u89+H+Cj4eSBWUBF6g==",
+    "UUID":"+hY+u89+H+Cn1A0z1a9mLw==",
     "REMOTE":""
    }
   ]
@@ -27,14 +27,14 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
     "VERSION":1,
     "CATEGORY":0,
     "EXPOSURE":2,
     "STATE":1,
     "RELEASE":0,
     "AUTHOR":"",
-    "CREATEDON":"2025-09-11",
+    "CREATEDON":"2025-10-01",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "CHGDANYBY":"",
@@ -51,7 +51,7 @@
     "UNICODE":"5",
     "RSTAT":"",
     "CLSBCIMPL":"",
-    "R3RELEASE":"",
+    "R3RELEASE":"916",
     "CLSBCTRANS":"",
     "CLSBCCAT":0,
     "CLSBCNODEL":"",
@@ -59,7 +59,7 @@
     "MSG_ID":"",
     "CLSPROXY":"",
     "CLSSHAREDMEMORY":"",
-    "WITH_UNIT_TESTS":"",
+    "WITH_UNIT_TESTS":"X",
     "DURATION_TYPE":"0",
     "RISK_LEVEL":"0",
     "WITHIN_PACKAGE":""
@@ -71,9 +71,9 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "LANGU":"T",
-    "DESCRIPT":"Parameter & Value"
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "LANGU":"E",
+    "DESCRIPT":"Util sınıfı"
    }
   ]
  },
@@ -82,29 +82,43 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAMS_VALUE",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_TCODE",
     "CMPTYPE":1,
     "MTDTYPE":0,
     "MTDTYPE2":0
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_UCOMM",
     "CMPTYPE":1,
     "MTDTYPE":0,
     "MTDTYPE2":0
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"TT_PARAM",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_USER",
+    "CMPTYPE":1,
+    "MTDTYPE":0,
+    "MTDTYPE2":0
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_TCODE",
     "CMPTYPE":3,
     "MTDTYPE":0,
     "MTDTYPE2":0
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"TY_PARAM",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_UCOMM",
+    "CMPTYPE":3,
+    "MTDTYPE":0,
+    "MTDTYPE2":0
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_USER",
     "CMPTYPE":3,
     "MTDTYPE":0,
     "MTDTYPE2":0
@@ -116,8 +130,8 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAMS_VALUE",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_TCODE",
     "VERSION":1,
     "ALIAS":"",
     "REDEFIN":"",
@@ -126,9 +140,9 @@
     "EDITORDER":2,
     "LOCKED":"",
     "DISPID":0,
-    "R3RELEASE":"916",
+    "R3RELEASE":"",
     "AUTHOR":"",
-    "CREATEDON":"2025-09-30",
+    "CREATEDON":"2025-10-01",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "MTDDECLTYP":1,
@@ -175,8 +189,67 @@
     "TYPESRC":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_UCOMM",
+    "VERSION":1,
+    "ALIAS":"",
+    "REDEFIN":"",
+    "EXPOSURE":2,
+    "STATE":1,
+    "EDITORDER":3,
+    "LOCKED":"",
+    "DISPID":0,
+    "R3RELEASE":"916",
+    "AUTHOR":"",
+    "CREATEDON":"2025-10-01",
+    "CHANGEDBY":"",
+    "CHANGEDON":"0000-00-00",
+    "MTDDECLTYP":1,
+    "MTDABSTRCT":"",
+    "MTDFINAL":"",
+    "DSRNOTEOM":"",
+    "EDTX":"",
+    "MTDNEWEXC":"",
+    "MTDREPLACE":"",
+    "MTDOPTNL":"",
+    "MTDSQLSERVICE":"",
+    "MTDAMDPRDONLY":"",
+    "MTDAMDPCDSCLNT":"",
+    "MTDAMDPCLNTINDEP":"",
+    "ATTDECLTYP":0,
+    "ATTDYNAMIC":"",
+    "ATTGETMTD":"",
+    "ATTSETMTD":"",
+    "ATTRDONLY":"",
+    "ATTVALUE":"",
+    "ATTPERSIST":"",
+    "ATTBUSOBJ":"",
+    "ATTKEYFLD":"",
+    "ATTEXPVIRT":0,
+    "EVTDECLTYP":0,
+    "TYPDUMMY":"",
+    "TYPTYPE":0,
+    "TYPE":"",
+    "TABLEOF":"",
+    "SRCROW1":0,
+    "SRCCOLUMN1":0,
+    "SRCROW2":0,
+    "SRCCOLUMN2":0,
+    "REFCLSNAME":"",
+    "REFINTNAME":"",
+    "REFCMPNAME":"",
+    "BCMTDINST":"",
+    "BCMTDCAT":0,
+    "BCMTDDIA":"",
+    "BCMTDCOM":"",
+    "BCMTDSYN":0,
+    "BCEVTCAT":0,
+    "TYPESRC_LENG":0,
+    "TYPESRC":""
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_USER",
     "VERSION":1,
     "ALIAS":"",
     "REDEFIN":"",
@@ -187,7 +260,7 @@
     "DISPID":0,
     "R3RELEASE":"",
     "AUTHOR":"",
-    "CREATEDON":"2025-09-11",
+    "CREATEDON":"2025-10-01",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "MTDDECLTYP":1,
@@ -234,8 +307,8 @@
     "TYPESRC":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"TT_PARAM",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_TCODE",
     "VERSION":1,
     "ALIAS":"",
     "REDEFIN":"",
@@ -244,9 +317,9 @@
     "EDITORDER":2,
     "LOCKED":"",
     "DISPID":0,
-    "R3RELEASE":"916",
+    "R3RELEASE":"",
     "AUTHOR":"",
-    "CREATEDON":"2025-09-30",
+    "CREATEDON":"2025-10-01",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "MTDDECLTYP":0,
@@ -276,10 +349,10 @@
     "TYPTYPE":4,
     "TYPE":"",
     "TABLEOF":"",
-    "SRCROW1":11,
+    "SRCROW1":8,
     "SRCCOLUMN1":11,
-    "SRCROW2":11,
-    "SRCCOLUMN2":56,
+    "SRCROW2":8,
+    "SRCCOLUMN2":35,
     "REFCLSNAME":"",
     "REFINTNAME":"",
     "REFCMPNAME":"",
@@ -289,12 +362,71 @@
     "BCMTDCOM":"",
     "BCMTDSYN":0,
     "BCEVTCAT":0,
-    "TYPESRC_LENG":48,
-    "TYPESRC":"tt_param TYPE TABLE OF ty_param WITH EMPTY KEY\r\n"
+    "TYPESRC_LENG":27,
+    "TYPESRC":"ty_tcode TYPE c LENGTH 20\r\n"
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"TY_PARAM",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_UCOMM",
+    "VERSION":1,
+    "ALIAS":"",
+    "REDEFIN":"",
+    "EXPOSURE":2,
+    "STATE":1,
+    "EDITORDER":3,
+    "LOCKED":"",
+    "DISPID":0,
+    "R3RELEASE":"916",
+    "AUTHOR":"",
+    "CREATEDON":"2025-10-01",
+    "CHANGEDBY":"",
+    "CHANGEDON":"0000-00-00",
+    "MTDDECLTYP":0,
+    "MTDABSTRCT":"",
+    "MTDFINAL":"",
+    "DSRNOTEOM":"",
+    "EDTX":"",
+    "MTDNEWEXC":"",
+    "MTDREPLACE":"",
+    "MTDOPTNL":"",
+    "MTDSQLSERVICE":"",
+    "MTDAMDPRDONLY":"",
+    "MTDAMDPCDSCLNT":"",
+    "MTDAMDPCLNTINDEP":"",
+    "ATTDECLTYP":0,
+    "ATTDYNAMIC":"",
+    "ATTGETMTD":"",
+    "ATTSETMTD":"",
+    "ATTRDONLY":"",
+    "ATTVALUE":"",
+    "ATTPERSIST":"",
+    "ATTBUSOBJ":"",
+    "ATTKEYFLD":"",
+    "ATTEXPVIRT":0,
+    "EVTDECLTYP":0,
+    "TYPDUMMY":"",
+    "TYPTYPE":4,
+    "TYPE":"",
+    "TABLEOF":"",
+    "SRCROW1":9,
+    "SRCCOLUMN1":11,
+    "SRCROW2":9,
+    "SRCCOLUMN2":35,
+    "REFCLSNAME":"",
+    "REFINTNAME":"",
+    "REFCMPNAME":"",
+    "BCMTDINST":"",
+    "BCMTDCAT":0,
+    "BCMTDDIA":"",
+    "BCMTDCOM":"",
+    "BCMTDSYN":0,
+    "BCEVTCAT":0,
+    "TYPESRC_LENG":27,
+    "TYPESRC":"ty_ucomm TYPE c LENGTH 70\r\n"
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_USER",
     "VERSION":1,
     "ALIAS":"",
     "REDEFIN":"",
@@ -303,9 +435,9 @@
     "EDITORDER":1,
     "LOCKED":"",
     "DISPID":0,
-    "R3RELEASE":"916",
+    "R3RELEASE":"",
     "AUTHOR":"",
-    "CREATEDON":"2025-09-30",
+    "CREATEDON":"2025-10-01",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "MTDDECLTYP":0,
@@ -337,8 +469,8 @@
     "TABLEOF":"",
     "SRCROW1":7,
     "SRCCOLUMN1":11,
-    "SRCROW2":10,
-    "SRCCOLUMN2":25,
+    "SRCROW2":7,
+    "SRCCOLUMN2":35,
     "REFCLSNAME":"",
     "REFINTNAME":"",
     "REFCMPNAME":"",
@@ -348,8 +480,8 @@
     "BCMTDCOM":"",
     "BCMTDSYN":0,
     "BCEVTCAT":0,
-    "TYPESRC_LENG":144,
-    "TYPESRC":"BEGIN OF ty_param,\r\n             name  TYPE zcldobj_a_param-pname,\r\n             value TYPE zcldobj_a_param-value,\r\n           END OF ty_param\r\n"
+    "TYPESRC_LENG":27,
+    "TYPESRC":"ty_user  TYPE c LENGTH 12\r\n"
    }
   ]
  },
@@ -358,27 +490,39 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAMS_VALUE",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_TCODE",
+    "LANGU":"E",
     "DESCRIPT":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_UCOMM",
+    "LANGU":"E",
     "DESCRIPT":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"TT_PARAM",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_USER",
+    "LANGU":"E",
     "DESCRIPT":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"TY_PARAM",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_TCODE",
+    "LANGU":"E",
+    "DESCRIPT":""
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_UCOMM",
+    "LANGU":"E",
+    "DESCRIPT":""
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"TY_USER",
+    "LANGU":"E",
     "DESCRIPT":""
    }
   ]
@@ -388,25 +532,25 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAMS_VALUE",
-    "SCONAME":"CT_PARAMS",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_TCODE",
+    "SCONAME":"RV_TCODE",
     "CMPTYPE":1,
     "MTDTYPE":0,
     "SCOTYPE":0
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "SCONAME":"IV_PARAM",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_UCOMM",
+    "SCONAME":"RV_TCODE",
     "CMPTYPE":1,
     "MTDTYPE":0,
     "SCOTYPE":0
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "SCONAME":"RV_VALUE",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_USER",
+    "SCONAME":"RV_USER",
     "CMPTYPE":1,
     "MTDTYPE":0,
     "SCOTYPE":0
@@ -418,75 +562,75 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAMS_VALUE",
-    "SCONAME":"CT_PARAMS",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_TCODE",
+    "SCONAME":"RV_TCODE",
     "VERSION":1,
     "EDITORDER":1,
     "LOCKED":"",
     "DISPID":0,
     "AUTHOR":"SAP_CUSTOMER",
-    "CREATEDON":"2025-09-30",
-    "CHANGEDBY":"",
-    "CHANGEDON":"0000-00-00",
-    "PARDECLTYP":2,
-    "PARPASSTYP":1,
-    "TYPTYPE":1,
-    "TYPE":"TT_PARAM",
-    "TABLEOF":"",
-    "SRCROW1":0,
-    "SRCCOLUMN1":0,
-    "SRCROW2":0,
-    "SRCCOLUMN2":0,
-    "PARVALUE":"",
-    "PAROPTIONL":"",
-    "PARPREFERD":"",
-    "EXCDECLTYP":0,
-    "IS_RESUMABLE":""
-   },
-   {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "SCONAME":"IV_PARAM",
-    "VERSION":1,
-    "EDITORDER":1,
-    "LOCKED":"",
-    "DISPID":0,
-    "AUTHOR":"SAP_CUSTOMER",
-    "CREATEDON":"2025-09-11",
-    "CHANGEDBY":"",
-    "CHANGEDON":"0000-00-00",
-    "PARDECLTYP":0,
-    "PARPASSTYP":1,
-    "TYPTYPE":1,
-    "TYPE":"ZCLDOBJ_A_PARAM-PNAME",
-    "TABLEOF":"",
-    "SRCROW1":0,
-    "SRCCOLUMN1":0,
-    "SRCROW2":0,
-    "SRCCOLUMN2":0,
-    "PARVALUE":"",
-    "PAROPTIONL":"",
-    "PARPREFERD":"",
-    "EXCDECLTYP":0,
-    "IS_RESUMABLE":""
-   },
-   {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "SCONAME":"RV_VALUE",
-    "VERSION":1,
-    "EDITORDER":2,
-    "LOCKED":"",
-    "DISPID":0,
-    "AUTHOR":"SAP_CUSTOMER",
-    "CREATEDON":"2025-09-11",
+    "CREATEDON":"2025-10-01",
     "CHANGEDBY":"",
     "CHANGEDON":"0000-00-00",
     "PARDECLTYP":3,
     "PARPASSTYP":0,
     "TYPTYPE":1,
-    "TYPE":"ZCLDOBJ_A_PARAM-VALUE",
+    "TYPE":"TY_TCODE",
+    "TABLEOF":"",
+    "SRCROW1":0,
+    "SRCCOLUMN1":0,
+    "SRCROW2":0,
+    "SRCCOLUMN2":0,
+    "PARVALUE":"",
+    "PAROPTIONL":"",
+    "PARPREFERD":"",
+    "EXCDECLTYP":0,
+    "IS_RESUMABLE":""
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_UCOMM",
+    "SCONAME":"RV_TCODE",
+    "VERSION":1,
+    "EDITORDER":1,
+    "LOCKED":"",
+    "DISPID":0,
+    "AUTHOR":"SAP_CUSTOMER",
+    "CREATEDON":"2025-10-01",
+    "CHANGEDBY":"",
+    "CHANGEDON":"0000-00-00",
+    "PARDECLTYP":3,
+    "PARPASSTYP":0,
+    "TYPTYPE":1,
+    "TYPE":"TY_UCOMM",
+    "TABLEOF":"",
+    "SRCROW1":0,
+    "SRCCOLUMN1":0,
+    "SRCROW2":0,
+    "SRCCOLUMN2":0,
+    "PARVALUE":"",
+    "PAROPTIONL":"",
+    "PARPREFERD":"",
+    "EXCDECLTYP":0,
+    "IS_RESUMABLE":""
+   },
+   {
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_USER",
+    "SCONAME":"RV_USER",
+    "VERSION":1,
+    "EDITORDER":1,
+    "LOCKED":"",
+    "DISPID":0,
+    "AUTHOR":"SAP_CUSTOMER",
+    "CREATEDON":"2025-10-01",
+    "CHANGEDBY":"",
+    "CHANGEDON":"0000-00-00",
+    "PARDECLTYP":3,
+    "PARPASSTYP":0,
+    "TYPTYPE":1,
+    "TYPE":"TY_USER",
     "TABLEOF":"",
     "SRCROW1":0,
     "SRCCOLUMN1":0,
@@ -505,24 +649,24 @@
   "data":
   [
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAMS_VALUE",
-    "SCONAME":"CT_PARAMS",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_TCODE",
+    "SCONAME":"RV_TCODE",
+    "LANGU":"E",
     "DESCRIPT":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "SCONAME":"IV_PARAM",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_UCOMM",
+    "SCONAME":"RV_TCODE",
+    "LANGU":"E",
     "DESCRIPT":""
    },
    {
-    "CLSNAME":"ZCLDOBJ_CL_PARAMETER",
-    "CMPNAME":"GET_PARAM_VALUE",
-    "SCONAME":"RV_VALUE",
-    "LANGU":"T",
+    "CLSNAME":"ZCLDOBJ_CL_UTIL",
+    "CMPNAME":"GET_USER",
+    "SCONAME":"RV_USER",
+    "LANGU":"E",
     "DESCRIPT":""
    }
   ]
@@ -534,7 +678,7 @@
    {
     "PGMID":"R3TR",
     "OBJECT":"CLAS",
-    "OBJ_NAME":"ZCLDOBJ_CL_PARAMETER",
+    "OBJ_NAME":"ZCLDOBJ_CL_UTIL",
     "KORRNUM":"",
     "SRCSYSTEM":"...",
     "AUTHOR":"SAP_CUSTOMER",
@@ -543,7 +687,7 @@
     "GENFLAG":"",
     "EDTFLAG":"",
     "CPROJECT":" L",
-    "MASTERLANG":"T",
+    "MASTERLANG":"E",
     "VERSID":"",
     "PAKNOCHECK":"",
     "OBJSTABLTY":"",
@@ -551,8 +695,8 @@
     "CRELEASE":"",
     "DELFLAG":"",
     "TRANSLTTXT":"",
-    "CREATED_ON":"2025-09-11",
-    "CHECK_DATE":"2025-09-11",
+    "CREATED_ON":"2025-10-01",
+    "CHECK_DATE":"2025-10-01",
     "CHECK_CFG":""
    }
   ]
@@ -562,21 +706,27 @@
   "data":
   [
    {
-    "CLASSNAME":"ZCLDOBJ_CL_PARAMETER",
+    "CLASSNAME":"ZCLDOBJ_CL_UTIL",
     "METHODINDX":0,
     "METHODNAME":" ",
     "FLAGS":0
    },
    {
-    "CLASSNAME":"ZCLDOBJ_CL_PARAMETER",
+    "CLASSNAME":"ZCLDOBJ_CL_UTIL",
     "METHODINDX":1,
-    "METHODNAME":"GET_PARAM_VALUE",
+    "METHODNAME":"GET_TCODE",
     "FLAGS":0
    },
    {
-    "CLASSNAME":"ZCLDOBJ_CL_PARAMETER",
+    "CLASSNAME":"ZCLDOBJ_CL_UTIL",
     "METHODINDX":2,
-    "METHODNAME":"GET_PARAMS_VALUE",
+    "METHODNAME":"GET_USER",
+    "FLAGS":0
+   },
+   {
+    "CLASSNAME":"ZCLDOBJ_CL_UTIL",
+    "METHODINDX":3,
+    "METHODNAME":"GET_UCOMM",
     "FLAGS":0
    }
   ]
@@ -586,7 +736,7 @@
   "data":
   [
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CCDEF",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CCAU",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -597,7 +747,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CCIMP",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CCDEF",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -608,7 +758,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CCMAC",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CCIMP",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -619,7 +769,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CI",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CCMAC",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -630,7 +780,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CM001",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CI",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -641,7 +791,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CM002",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CM001",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -652,7 +802,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CO",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CM002",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
@@ -663,7 +813,29 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CP",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CM003",
+    "VARCL":"X",
+    "DBAPL":"S",
+    "DBNA":"D$",
+    "SUBC":"I",
+    "APPL":"S",
+    "FIXPT":"X",
+    "LDBNAME":"D$S",
+    "UCCHECK":"X"
+   },
+   {
+    "NAME":"ZCLDOBJ_CL_UTIL===============CO",
+    "VARCL":"X",
+    "DBAPL":"S",
+    "DBNA":"D$",
+    "SUBC":"I",
+    "APPL":"S",
+    "FIXPT":"X",
+    "LDBNAME":"D$S",
+    "UCCHECK":"X"
+   },
+   {
+    "NAME":"ZCLDOBJ_CL_UTIL===============CP",
     "EDTX":"X",
     "VARCL":"X",
     "DBAPL":"S",
@@ -675,7 +847,7 @@
     "UCCHECK":"5"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CT",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CT",
     "DBAPL":"S",
     "DBNA":"D$",
     "SUBC":"I",
@@ -685,7 +857,7 @@
     "UCCHECK":"X"
    },
    {
-    "NAME":"ZCLDOBJ_CL_PARAMETER==========CU",
+    "NAME":"ZCLDOBJ_CL_UTIL===============CU",
     "VARCL":"X",
     "DBAPL":"S",
     "DBNA":"D$",
