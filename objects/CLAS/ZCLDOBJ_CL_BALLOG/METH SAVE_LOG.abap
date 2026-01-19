@@ -8,7 +8,7 @@
             cl_bali_log_db=>get_instance( )->save_log( mo_log ).
           ENDIF.
         CATCH cx_bali_runtime INTO DATA(lx_bali_runtime).
-          "handle exception
+          DATA(lv_text) = lx_bali_runtime->get_longtext(  ).
       ENDTRY.
 
       " Get the handle
