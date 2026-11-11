@@ -2,7 +2,7 @@ CLASS zcldobj_cl_send_mail DEFINITION
 PUBLIC
   FINAL
   CREATE PUBLIC .
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   PUBLIC SECTION.
     TYPES: BEGIN OF ty_attachment,
              iv_content      TYPE xstring,
