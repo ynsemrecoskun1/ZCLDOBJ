@@ -2,14 +2,19 @@
     DATA lt_log_create  TYPE TABLE FOR CREATE zcldobj_r_log.
     DATA lt_log_update  TYPE TABLE FOR UPDATE zcldobj_r_log.
     DATA lt_item_create TYPE TABLE FOR CREATE zcldobj_r_log\_item.
+    DATA ls_item_create LIKE LINE OF lt_item_create.
+    DATA lt_item_target LIKE ls_item_create-%target.
     DATA lv_exists      TYPE abap_bool.
+    DATA lv_cid_log     TYPE abp_behv_cid.
+
+    lv_cid_log = |LOG_{ mv_log_id }|.
+
+    SELECT SINGLE @abap_true
+      FROM zcldobj_a_log WITH PRIVILEGED ACCESS
+     WHERE log_id = @mv_log_id
+      INTO @lv_exists.
 
     IF mt_log IS NOT INITIAL.
-      SELECT SINGLE @abap_true
-        FROM zcldobj_a_log WITH PRIVILEGED ACCESS
-       WHERE log_id = @mv_log_id
-        INTO @lv_exists.
-
       IF lv_exists = abap_true.
         APPEND VALUE #( %key-LogId      = mv_log_id
                          LogDatetime     = mt_log[ 1 ]-log_datetime
@@ -23,7 +28,7 @@
                          Duration        = mt_log[ 1 ]-duration )
                TO lt_log_update.
       ELSE.
-        APPEND VALUE #( %cid            = 'LOGCREATE1'
+        APPEND VALUE #( %cid            = lv_cid_log
                          LogId           = mv_log_id
                          LogDatetime     = mt_log[ 1 ]-log_datetime
                          ServiceName     = mt_log[ 1 ]-service_name
@@ -40,16 +45,25 @@
 
     IF mt_log_detail IS NOT INITIAL.
       LOOP AT mt_log_detail ASSIGNING FIELD-SYMBOL(<ls_detail>).
-        APPEND VALUE #( %key-LogId = mv_log_id
-                         %target   = VALUE #( ( %cid         = |LOGDETCREATE{ <ls_detail>-detail_id }|
-                                                LogId         = <ls_detail>-log_id
-                                                DetailId      = <ls_detail>-detail_id
-                                                StepName      = <ls_detail>-step_name
-                                                StepDatetime  = <ls_detail>-step_datetime
-                                                StepStatus    = <ls_detail>-step_status
-                                                StepErrorMsg  = <ls_detail>-step_error_msg ) ) )
-               TO lt_item_create.
+        APPEND VALUE #( %cid          = |LOGDET_{ <ls_detail>-log_id }_{ <ls_detail>-detail_id }|
+                         LogId         = <ls_detail>-log_id
+                         DetailId      = <ls_detail>-detail_id
+                         StepName      = <ls_detail>-step_name
+                         StepDatetime  = <ls_detail>-step_datetime
+                         StepStatus    = <ls_detail>-step_status
+                         StepErrorMsg  = <ls_detail>-step_error_msg )
+               TO lt_item_target.
       ENDLOOP.
+
+      IF lv_exists = abap_true.
+        APPEND VALUE #( %key-LogId = mv_log_id
+                         %target   = lt_item_target )
+               TO lt_item_create.
+      ELSE.
+        APPEND VALUE #( %cid_ref = lv_cid_log
+                         %target = lt_item_target )
+               TO lt_item_create.
+      ENDIF.
     ENDIF.
 
     MODIFY ENTITIES OF zcldobj_r_log
