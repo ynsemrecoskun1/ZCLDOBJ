@@ -1,0 +1,2 @@
+CLASS zcldobj_bp_r_log DEFINITION PUBLIC FINAL FOR BEHAVIOR OF zcldobj_r_log.
+  PUBLIC SECTION.
