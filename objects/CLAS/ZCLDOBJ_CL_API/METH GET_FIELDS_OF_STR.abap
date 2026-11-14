@@ -1,10 +1,12 @@
   METHOD get_fields_of_str.
-    DATA: lo_return_descr TYPE REF TO cl_abap_structdescr.
-    TRY.
-        lo_return_descr ?= cl_abap_structdescr=>describe_by_name( iv_structure ).
-        DATA(lt_components) = lo_return_descr->get_components( ).
-        rt_fields = VALUE #( FOR ls_component IN lt_components ( ls_component-name ) ).
-      CATCH cx_root.
-    ENDTRY.
+    cl_abap_typedescr=>describe_by_name( EXPORTING  p_name      = iv_structure
+                                         RECEIVING  p_descr_ref = DATA(lo_descr)
+                                         EXCEPTIONS type_not_found = 1
+                                                    OTHERS         = 2 ).
+    IF sy-subrc <> 0 OR lo_descr IS NOT INSTANCE OF cl_abap_structdescr.
+      RETURN.
+    ENDIF.
 
+    DATA(lt_components) = CAST cl_abap_structdescr( lo_descr )->get_components( ).
+    rt_fields = VALUE #( FOR ls_component IN lt_components ( ls_component-name ) ).
   ENDMETHOD.
