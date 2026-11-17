@@ -7,9 +7,9 @@
     "DDLXNAME":"ZCLDOBJ_C_LOGDET",
     "VERSION":"A",
     "CHANGED_BY":"SAP_CUSTOMER",
-    "CHANGED_ON":"2025-09-11",
-    "CHANGED_AT":"13:03:49",
-    "UUID":"FA163EBBCF7E1FE0A3E1F84E06D125EA",
+    "CHANGED_ON":"2026-11-17",
+    "CHANGED_AT":"11:50:44",
+    "UUID":"FA163EBBCF7E1FE1B8CFA3D42C26ECB2",
     "ABAP_LANGUAGE_VERSION":"5"
    }
   ]
@@ -34,7 +34,7 @@
     "DDLXNAME":"ZCLDOBJ_C_LOGDET",
     "VERSION":"A",
     "UUID":"",
-    "SOURCE":"@Metadata.layer: #CORE\r\nannotate entity ZCLDOBJ_C_LOGDET with\r\n{\r\n  @UI: { lineItem: [{ position : 10 } ] }\r\n  LogId;\r\n  @UI: { lineItem: [{ position : 20 } ] }\r\n  DetailId;\r\n  @UI: { lineItem: [{ position : 30 } ] }\r\n  StepName;\r\n  @UI: { lineItem: [{ position : 40 } ] }\r\n  StepDatetime;\r\n  @UI: { lineItem: [{ position : 50 } ] }\r\n  StepStatus;\r\n  @UI: { lineItem: [{ position : 60 } ] }\r\n  StepErrorMsg;\r\n\r\n}"
+    "SOURCE":"@Metadata.layer: #CORE\n@UI: {\n  headerInfo: {\n    typeName: 'Log Adımı',\n    typeNamePlural: 'Log Adımları',\n    title: { type: #STANDARD, value: 'StepName' }\n  },\n  presentationVariant: [{\n    sortOrder: [{ by: 'DetailId', direction: #ASC }],\n    visualizations: [{ type: #AS_LINEITEM }]\n  }]\n}\nannotate entity ZCLDOBJ_C_LOGDET with\n{\n  @UI: { lineItem: [{ position : 10 } ] }\n  LogId;\n  @UI: { lineItem: [{ position : 20 } ] }\n  DetailId;\n  @UI: { lineItem: [{ position : 30 } ] }\n  StepName;\n  @UI: { lineItem: [{ position : 40 } ] }\n  StepDatetime;\n  @UI: { lineItem: [{ position : 50, criticality: 'StepStatusCriticality', criticalityRepresentation: #WITH_ICON } ] }\n  StepStatus;\n  @UI: { lineItem: [{ position : 60 } ] }\n  StepErrorMsg;\n  @UI.hidden: true\n  StepStatusCriticality;\n\n}\n"
    }
   ]
  },
@@ -42,6 +42,55 @@
   "table":"DDLX_RT_DATA",
   "data":
   [
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.TYPE",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"#STANDARD"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.VALUE",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"'StepName'"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"'Log Adımı'"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"'Log Adımları'"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.PRESENTATIONVARIANT$1$.SORTORDER$1$.BY",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"'DetailId'"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.PRESENTATIONVARIANT$1$.SORTORDER$1$.DIRECTION",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"#ASC"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.PRESENTATIONVARIANT$1$.VISUALIZATIONS$1$.TYPE",
+    "ELEMENT_TYPE":"N",
+    "VALUE":"#AS_LINEITEM"
+   },
    {
     "DDLXNAME":"ZCLDOBJ_C_LOGDET",
     "ELEMENT":"DETAILID",
@@ -80,9 +129,50 @@
    {
     "DDLXNAME":"ZCLDOBJ_C_LOGDET",
     "ELEMENT":"STEPSTATUS",
+    "NAME":"UI.LINEITEM$1$.CRITICALITY",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"'StepStatusCriticality'"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"STEPSTATUS",
+    "NAME":"UI.LINEITEM$1$.CRITICALITYREPRESENTATION",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"#WITH_ICON"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"STEPSTATUS",
     "NAME":"UI.LINEITEM$1$.POSITION",
     "ELEMENT_TYPE":"S",
     "VALUE":"50"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"STEPSTATUSCRITICALITY",
+    "NAME":"UI.HIDDEN",
+    "ELEMENT_TYPE":"S",
+    "VALUE":"true"
+   }
+  ]
+ },
+ {
+  "table":"DDLX_RT_DATA_T",
+  "data":
+  [
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAME",
+    "TEXT":"Log Adımı"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "DDLANGUAGE":"T",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TYPENAMEPLURAL",
+    "TEXT":"Log Adımları"
    }
   ]
  },
@@ -95,10 +185,46 @@
     "EXTENDED_ARTIFACT":"ZCLDOBJ_C_LOGDET",
     "VARIANT":"",
     "LAYER":1500,
-    "DT_UUID":"FA163EBBCF7E1FE0A3E1F84E06D125EA",
-    "RT_HASH":"8C7C6D8F1431CB820E824513E32CB53FAEACB93A",
+    "DT_UUID":"FA163EBBCF7E1FE1B8CFA3D42C26ECB2",
+    "RT_HASH":"51F7ECFFABC49F8112224024CC700CCBF6746D35",
     "GEN_VERSION":"0",
     "TYPE":"0"
+   }
+  ]
+ },
+ {
+  "table":"DDLX_RT_REFS",
+  "data":
+  [
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.HEADERINFO.TITLE.VALUE",
+    "PATH":"STEPNAME",
+    "REF_OBJECT_TYPE":"STOB",
+    "REF_OBJECT_SUBTYPE":"DOF",
+    "REF_OBJECT_NAME":"ZCLDOBJ_C_LOGDET",
+    "REF_OBJECT_ELEMENT":"STEPNAME"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"",
+    "NAME":"UI.PRESENTATIONVARIANT$1$.SORTORDER$1$.BY",
+    "PATH":"DETAILID",
+    "REF_OBJECT_TYPE":"STOB",
+    "REF_OBJECT_SUBTYPE":"DOF",
+    "REF_OBJECT_NAME":"ZCLDOBJ_C_LOGDET",
+    "REF_OBJECT_ELEMENT":"DETAILID"
+   },
+   {
+    "DDLXNAME":"ZCLDOBJ_C_LOGDET",
+    "ELEMENT":"STEPSTATUS",
+    "NAME":"UI.LINEITEM$1$.CRITICALITY",
+    "PATH":"STEPSTATUSCRITICALITY",
+    "REF_OBJECT_TYPE":"STOB",
+    "REF_OBJECT_SUBTYPE":"DOF",
+    "REF_OBJECT_NAME":"ZCLDOBJ_C_LOGDET",
+    "REF_OBJECT_ELEMENT":"STEPSTATUSCRITICALITY"
    }
   ]
  },

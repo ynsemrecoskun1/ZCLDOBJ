@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@AbapCatalog.viewEnhancementCategory: [#NONE]\r\n@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'Entegrasyon Log Detay Base Entity'\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@ObjectModel.usageType:{\r\n    serviceQuality: #X,\r\n    sizeCategory: #S,\r\n    dataClass: #MIXED\r\n}\r\ndefine view entity ZCLDOBJ_I_LOGDET\r\n  as select from zcldobj_a_logdet\r\n  association to parent ZCLDOBJ_R_LOG as _Header on  $projection.LogId = _Header.LogId\r\n{\r\n  key log_id         as LogId,\r\n  key detail_id      as DetailId,\r\n      step_name      as StepName,\r\n      step_datetime  as StepDatetime,\r\n      step_status    as StepStatus,\r\n      step_error_msg as StepErrorMsg,\r\n      \r\n      _Header\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZCLDOBJ_A_LOGDET\"\n],\n\"ASSOCIATED\":\n[\n\"ZCLDOBJ_R_LOG\"\n],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@AbapCatalog.viewEnhancementCategory: [#NONE]\n@AccessControl.authorizationCheck: #NOT_REQUIRED\n@EndUserText.label: 'Entegrasyon Log Detay Base Entity'\n@Metadata.ignorePropagatedAnnotations: true\n@ObjectModel.usageType:{\n    serviceQuality: #X,\n    sizeCategory: #S,\n    dataClass: #MIXED\n}\ndefine view entity ZCLDOBJ_I_LOGDET\n  as select from zcldobj_a_logdet\n  association to parent ZCLDOBJ_R_LOG as _Header on  $projection.LogId = _Header.LogId\n{\n  key log_id         as LogId,\n  key detail_id      as DetailId,\n      step_name      as StepName,\n      step_datetime  as StepDatetime,\n      step_status    as StepStatus,\n      cast( case step_status\n              when 'S' then 3\n              when 'W' then 2\n              when 'E' then 1\n              else 0\n            end as abap.int1 ) as StepStatusCriticality,\n      step_error_msg as StepErrorMsg,\n      \n      _Header\n}\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZCLDOBJ_A_LOGDET\"\n],\n\"ASSOCIATED\":\n[\n\"ZCLDOBJ_R_LOG\"\n],\n\"BASE\":\n[],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"WD",
+    "CHGFLAG":"5",
     "SOURCE_TYPE":"W",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -36,6 +36,12 @@
   "table":"DDDDLSRCT",
   "data":
   [
+   {
+    "DDLNAME":"ZCLDOBJ_I_LOGDET",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "DDTEXT":""
+   },
    {
     "DDLNAME":"ZCLDOBJ_I_LOGDET",
     "DDLANGUAGE":"T",

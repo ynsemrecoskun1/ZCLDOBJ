@@ -9,10 +9,10 @@
     "AS4USER":"SAP_CUSTOMER",
     "AS4DATE":"0000-00-00",
     "AS4TIME":"00:00:00",
-    "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\r\n@EndUserText.label: 'Entegrasyon Log Projection View'\r\n@Metadata.ignorePropagatedAnnotations: true\r\n@Metadata.allowExtensions: true\r\ndefine root view entity ZCLDOBJ_C_LOG\r\n  as projection on ZCLDOBJ_R_LOG\r\n{\r\n  key LogId,\r\n      LogDatetime,\r\n      ServiceName,\r\n      ServiceType,\r\n      TriggerType,\r\n      RequestPayload,\r\n      ResponsePayload,\r\n      Status,\r\n      ErrorMessage,\r\n      Duration,\r\n      /* Associations */\r\n      _Item : redirected to composition child ZCLDOBJ_C_LOGDET\r\n}\r\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZCLDOBJ_R_LOG\"\n],\n\"ASSOCIATED\":\n[\n\"ZCLDOBJ_C_LOGDET\",\n\"ZCLDOBJ_I_LOGDET\"\n],\n\"BASE\":\n[\n\"ZCLDOBJ_R_LOG\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
+    "SOURCE":"@AccessControl.authorizationCheck: #NOT_REQUIRED\n@EndUserText.label: 'Entegrasyon Log Projection View'\n@Metadata.ignorePropagatedAnnotations: true\n@Metadata.allowExtensions: true\ndefine root view entity ZCLDOBJ_C_LOG\n  as projection on ZCLDOBJ_R_LOG\n{\n  key LogId,\n      LogDatetime,\n      ServiceName,\n      ServiceType,\n      TriggerType,\n      RequestPayload,\n      ResponsePayload,\n      Status,\n      StatusCriticality,\n      ErrorMessage,\n      Duration,\n      BusinessKey,\n      /* Associations */\n      _Item : redirected to composition child ZCLDOBJ_C_LOGDET\n}\n/*+[internal] {\n\"BASEINFO\":\n{\n\"FROM\":\n[\n\"ZCLDOBJ_R_LOG\"\n],\n\"ASSOCIATED\":\n[\n\"ZCLDOBJ_C_LOGDET\",\n\"ZCLDOBJ_I_LOGDET\"\n],\n\"BASE\":\n[\n\"ZCLDOBJ_R_LOG\"\n],\n\"ANNO_REF\":\n[],\n\"SCALAR_FUNCTION\":\n[],\n\"VERSION\":0,\n\"ANNOREF_EVALUATION_ERROR\":\"\"\n}\n}*/",
     "PARENTNAME":"",
     "ACTFLAG":"",
-    "CHGFLAG":"WD",
+    "CHGFLAG":"6",
     "SOURCE_TYPE":"P",
     "SOURCE_ORIGIN":"0",
     "ABAP_LANGUAGE_VERSION":"5"
@@ -36,6 +36,12 @@
   "table":"DDDDLSRCT",
   "data":
   [
+   {
+    "DDLNAME":"ZCLDOBJ_C_LOG",
+    "DDLANGUAGE":"E",
+    "AS4LOCAL":"N",
+    "DDTEXT":""
+   },
    {
     "DDLNAME":"ZCLDOBJ_C_LOG",
     "DDLANGUAGE":"T",

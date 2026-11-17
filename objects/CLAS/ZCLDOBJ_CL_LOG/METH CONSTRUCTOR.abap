@@ -21,6 +21,7 @@
             INTO TABLE @mt_log.
 
           mv_log_id = iv_logid.
+          mv_details_saved = mv_detail_index.
 
         ENDIF.
       CATCH cx_uuid_error.

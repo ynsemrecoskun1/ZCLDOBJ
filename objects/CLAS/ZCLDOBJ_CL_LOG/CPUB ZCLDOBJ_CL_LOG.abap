@@ -17,6 +17,8 @@ CLASS zcldobj_cl_log DEFINITION
              response_payload TYPE zcldobj_e_response_payload,
              status           TYPE zcldobj_e_status,
              error_message    TYPE zcldobj_e_error_message,
+             "! Servis için anlamı olan iş numarası (belge no, sözleşme no vb.), en fazla 30 karakter
+             business_key     TYPE zcldobj_e_business_key,
            END OF ty_log,
            BEGIN OF ty_log_detail,
              step_name      TYPE zcldobj_e_step_name,
@@ -36,4 +38,5 @@ CLASS zcldobj_cl_log DEFINITION
       get_logid RETURNING VALUE(rv_logid) TYPE sysuuid_x16,
       add_log IMPORTING is_log TYPE ty_log,
       add_log_detail IMPORTING is_log_detail TYPE ty_log_detail,
-      save_logs IMPORTING iv_behavior TYPE abap_boolean DEFAULT abap_false.
+      save_logs IMPORTING iv_behavior       TYPE abap_boolean DEFAULT abap_false
+                RETURNING VALUE(rv_success) TYPE abap_boolean.

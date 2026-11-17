@@ -1,11 +1,10 @@
   METHOD get_duration.
-    DATA: lv_hours       TYPE c LENGTH 2,
-          lv_minutes     TYPE c LENGTH 2,
-          lv_secs        TYPE c LENGTH 2,
-          lv_time_string TYPE string.
+    DATA: lv_total   TYPE i,
+          lv_hours   TYPE i,
+          lv_minutes TYPE i,
+          lv_secs    TYPE i.
 
     GET TIME STAMP FIELD DATA(lv_instant_tstmp).
-*    DATA(lv_instant_tstmp) = CONV zcldobj_e_log_datetime( get_datetime_turkey( ) ).
 
     TRY.
         cl_abap_tstmp=>subtract(
@@ -16,16 +15,19 @@
             r_secs = DATA(lv_seconds)
         ).
 
-        " Calculate hours, minutes, and seconds
-        lv_hours   = lv_seconds DIV 3600.
-        lv_minutes = ( lv_seconds MOD 3600 ) DIV 60.
-        lv_secs    = lv_seconds MOD 60.
+        " Saniyenin ondalık kısmı ve negatif değerler HHMMSS biçimini bozmasın
+        lv_total = nmax( val1 = 0 val2 = round( val = lv_seconds dec = 0 ) ).
 
-        " Format as HH:MM:SS
-        rv_time = |{ lv_hours ALPHA = IN WIDTH = 2 }{ lv_minutes ALPHA = IN WIDTH = 2 }{ lv_secs ALPHA = IN WIDTH = 2 }|.
+        " TIMS alanı en fazla 23:59:59 tutar
+        lv_total   = nmin( val1 = lv_total val2 = 86399 ).
+        lv_hours   = lv_total DIV 3600.
+        lv_minutes = ( lv_total MOD 3600 ) DIV 60.
+        lv_secs    = lv_total MOD 60.
 
+        " HHMMSS biçimi
+        rv_time = |{ lv_hours WIDTH = 2 PAD = `0` ALIGN = RIGHT }{ lv_minutes WIDTH = 2 PAD = `0` ALIGN = RIGHT }{ lv_secs WIDTH = 2 PAD = `0` ALIGN = RIGHT }|.
 
-      CATCH cx_parameter_invalid_range cx_parameter_invalid_type INTO DATA(lx_error).
-
+      CATCH cx_parameter_invalid_range cx_parameter_invalid_type.
+        CLEAR rv_time.
     ENDTRY.
   ENDMETHOD.

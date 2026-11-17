@@ -14,6 +14,11 @@
      WHERE log_id = @mv_log_id
       INTO @lv_exists.
 
+    " Başlık bu nesnede daha önce oluşturulduysa (behavior modunda DB'de henüz yok) güncelleme yolu kullanılır
+    IF mv_header_created = abap_true.
+      lv_exists = abap_true.
+    ENDIF.
+
     IF mt_log IS NOT INITIAL.
       IF lv_exists = abap_true.
         APPEND VALUE #( %key-LogId      = mv_log_id
@@ -25,7 +30,8 @@
                          ResponsePayload = mt_log[ 1 ]-response_payload
                          Status          = mt_log[ 1 ]-status
                          ErrorMessage    = mt_log[ 1 ]-error_message
-                         Duration        = mt_log[ 1 ]-duration )
+                         Duration        = mt_log[ 1 ]-duration
+                         BusinessKey     = mt_log[ 1 ]-business_key )
                TO lt_log_update.
       ELSE.
         APPEND VALUE #( %cid            = lv_cid_log
@@ -38,13 +44,15 @@
                          ResponsePayload = mt_log[ 1 ]-response_payload
                          Status          = mt_log[ 1 ]-status
                          ErrorMessage    = mt_log[ 1 ]-error_message
-                         Duration        = mt_log[ 1 ]-duration )
+                         Duration        = mt_log[ 1 ]-duration
+                         BusinessKey     = mt_log[ 1 ]-business_key )
                TO lt_log_create.
       ENDIF.
     ENDIF.
 
     IF mt_log_detail IS NOT INITIAL.
-      LOOP AT mt_log_detail ASSIGNING FIELD-SYMBOL(<ls_detail>).
+      " Daha önce kaydedilen adımlar tekrar CREATE edilmez
+      LOOP AT mt_log_detail ASSIGNING FIELD-SYMBOL(<ls_detail>) WHERE detail_id > mv_details_saved.
         APPEND VALUE #( %cid          = |LOGDET_{ <ls_detail>-log_id }_{ <ls_detail>-detail_id }|
                          LogId         = <ls_detail>-log_id
                          DetailId      = <ls_detail>-detail_id
@@ -55,24 +63,26 @@
                TO lt_item_target.
       ENDLOOP.
 
-      IF lv_exists = abap_true.
-        APPEND VALUE #( %key-LogId = mv_log_id
-                         %target   = lt_item_target )
-               TO lt_item_create.
-      ELSE.
-        APPEND VALUE #( %cid_ref = lv_cid_log
-                         %target = lt_item_target )
-               TO lt_item_create.
+      IF lt_item_target IS NOT INITIAL.
+        IF lv_exists = abap_true.
+          APPEND VALUE #( %key-LogId = mv_log_id
+                           %target   = lt_item_target )
+                 TO lt_item_create.
+        ELSE.
+          APPEND VALUE #( %cid_ref = lv_cid_log
+                           %target = lt_item_target )
+                 TO lt_item_create.
+        ENDIF.
       ENDIF.
     ENDIF.
 
     MODIFY ENTITIES OF zcldobj_r_log
       ENTITY log
         CREATE FIELDS ( LogId LogDatetime ServiceName ServiceType TriggerType
-                         RequestPayload ResponsePayload Status ErrorMessage Duration )
+                         RequestPayload ResponsePayload Status ErrorMessage Duration BusinessKey )
           WITH lt_log_create
         UPDATE FIELDS ( LogDatetime ServiceName ServiceType TriggerType
-                         RequestPayload ResponsePayload Status ErrorMessage Duration )
+                         RequestPayload ResponsePayload Status ErrorMessage Duration BusinessKey )
           WITH lt_log_update
         CREATE BY \_Item
           FIELDS ( LogId DetailId StepName StepDatetime StepStatus StepErrorMsg )
@@ -81,11 +91,23 @@
       REPORTED DATA(ls_reported).
 
     IF ls_failed-log IS INITIAL AND ls_failed-logdetail IS INITIAL.
+      rv_success = abap_true.
       IF iv_behavior IS INITIAL.
         COMMIT ENTITIES
           RESPONSE OF zcldobj_r_log
           FAILED   DATA(ls_commit_failed)
           REPORTED DATA(ls_commit_reported).
+        IF ls_commit_failed-log IS NOT INITIAL OR ls_commit_failed-logdetail IS NOT INITIAL.
+          rv_success = abap_false.
+        ENDIF.
+      ENDIF.
+
+      IF rv_success = abap_true.
+        " Aynı nesneyle tekrar save_logs( ) çağrılırsa kayıtlar çoğaltmaz
+        mv_details_saved = mv_detail_index.
+        IF mt_log IS NOT INITIAL.
+          mv_header_created = abap_true.
+        ENDIF.
       ENDIF.
     ELSE.
       IF iv_behavior IS INITIAL.

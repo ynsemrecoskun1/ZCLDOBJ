@@ -24,6 +24,7 @@ authorization master ( instance )
     Status          = status;
     ErrorMessage    = error_message;
     Duration        = duration;
+    BusinessKey     = business_key;
   }
 
   association _Item { create; }
