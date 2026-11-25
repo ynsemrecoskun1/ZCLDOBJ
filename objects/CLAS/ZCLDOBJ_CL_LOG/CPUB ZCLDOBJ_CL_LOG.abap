@@ -19,6 +19,8 @@ CLASS zcldobj_cl_log DEFINITION
              error_message    TYPE zcldobj_e_error_message,
              "! Servis için anlamı olan iş numarası (belge no, sözleşme no vb.), en fazla 30 karakter
              business_key     TYPE zcldobj_e_business_key,
+             "! HTTP metodu: POST, GET, PUT, PATCH, DELETE (küçük harf verilse de büyük yazılır)
+             http_method      TYPE zcldobj_e_http_method,
            END OF ty_log,
            BEGIN OF ty_log_detail,
              step_name      TYPE zcldobj_e_step_name,

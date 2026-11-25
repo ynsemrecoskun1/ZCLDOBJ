@@ -12,6 +12,7 @@
     <lfs_log>-status       = normalize_status( is_log-status ).
     <lfs_log>-service_type = normalize_type( is_log-service_type ).
     <lfs_log>-trigger_type = to_upper( is_log-trigger_type ).
+    <lfs_log>-http_method  = to_upper( condense( is_log-http_method ) ).
 
     GET TIME STAMP FIELD <lfs_log>-log_datetime.
 

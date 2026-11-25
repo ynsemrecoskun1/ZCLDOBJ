@@ -31,7 +31,8 @@
                          Status          = mt_log[ 1 ]-status
                          ErrorMessage    = mt_log[ 1 ]-error_message
                          Duration        = mt_log[ 1 ]-duration
-                         BusinessKey     = mt_log[ 1 ]-business_key )
+                         BusinessKey     = mt_log[ 1 ]-business_key
+                         HttpMethod      = mt_log[ 1 ]-http_method )
                TO lt_log_update.
       ELSE.
         APPEND VALUE #( %cid            = lv_cid_log
@@ -45,7 +46,8 @@
                          Status          = mt_log[ 1 ]-status
                          ErrorMessage    = mt_log[ 1 ]-error_message
                          Duration        = mt_log[ 1 ]-duration
-                         BusinessKey     = mt_log[ 1 ]-business_key )
+                         BusinessKey     = mt_log[ 1 ]-business_key
+                         HttpMethod      = mt_log[ 1 ]-http_method )
                TO lt_log_create.
       ENDIF.
     ENDIF.
@@ -79,10 +81,10 @@
     MODIFY ENTITIES OF zcldobj_r_log
       ENTITY log
         CREATE FIELDS ( LogId LogDatetime ServiceName ServiceType TriggerType
-                         RequestPayload ResponsePayload Status ErrorMessage Duration BusinessKey )
+                         RequestPayload ResponsePayload Status ErrorMessage Duration BusinessKey HttpMethod )
           WITH lt_log_create
         UPDATE FIELDS ( LogDatetime ServiceName ServiceType TriggerType
-                         RequestPayload ResponsePayload Status ErrorMessage Duration BusinessKey )
+                         RequestPayload ResponsePayload Status ErrorMessage Duration BusinessKey HttpMethod )
           WITH lt_log_update
         CREATE BY \_Item
           FIELDS ( LogId DetailId StepName StepDatetime StepStatus StepErrorMsg )

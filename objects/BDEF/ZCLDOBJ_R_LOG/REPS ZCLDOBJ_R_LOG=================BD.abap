@@ -25,6 +25,7 @@ authorization master ( instance )
     ErrorMessage    = error_message;
     Duration        = duration;
     BusinessKey     = business_key;
+    HttpMethod      = http_method;
   }
 
   association _Item { create; }

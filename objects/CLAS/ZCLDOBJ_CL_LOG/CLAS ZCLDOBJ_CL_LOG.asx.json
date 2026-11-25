@@ -1598,7 +1598,7 @@
     "TABLEOF":"",
     "SRCROW1":12,
     "SRCCOLUMN1":11,
-    "SRCROW2":22,
+    "SRCROW2":24,
     "SRCCOLUMN2":23,
     "REFCLSNAME":"",
     "REFINTNAME":"",
@@ -1609,8 +1609,8 @@
     "BCMTDCOM":"",
     "BCMTDSYN":0,
     "BCEVTCAT":0,
-    "TYPESRC_LENG":629,
-    "TYPESRC":"BEGIN OF ty_log,\r\n             service_name     TYPE zcldobj_e_service_name,\r\n             service_type     TYPE zcldobj_e_service_type,\r\n             trigger_type     TYPE zcldobj_e_trigger_type,\r\n             request_payload  TYPE zcldobj_e_request_payload,\r\n             response_payload TYPE zcldobj_e_response_payload,\r\n             status           TYPE zcldobj_e_status,\r\n             error_message    TYPE zcldobj_e_error_message,\r\n             \"! Servis için anlamı olan iş numarası (belge no, sözleşme no vb.), en fazla 30 karakter\r\n             business_key     TYPE zcldobj_e_business_key,\r\n           END OF ty_log\r\n"
+    "TYPESRC_LENG":786,
+    "TYPESRC":"BEGIN OF ty_log,\r\n             service_name     TYPE zcldobj_e_service_name,\r\n             service_type     TYPE zcldobj_e_service_type,\r\n             trigger_type     TYPE zcldobj_e_trigger_type,\r\n             request_payload  TYPE zcldobj_e_request_payload,\r\n             response_payload TYPE zcldobj_e_response_payload,\r\n             status           TYPE zcldobj_e_status,\r\n             error_message    TYPE zcldobj_e_error_message,\r\n             \"! Servis için anlamı olan iş numarası (belge no, sözleşme no vb.), en fazla 30 karakter\r\n             business_key     TYPE zcldobj_e_business_key,\r\n             \"! HTTP metodu: POST, GET, PUT, PATCH, DELETE (küçük harf verilse de büyük yazılır)\r\n             http_method      TYPE zcldobj_e_http_method,\r\n           END OF ty_log\r\n"
    },
    {
     "CLSNAME":"ZCLDOBJ_CL_LOG",
@@ -1655,9 +1655,9 @@
     "TYPTYPE":4,
     "TYPE":"",
     "TABLEOF":"",
-    "SRCROW1":23,
+    "SRCROW1":25,
     "SRCCOLUMN1":11,
-    "SRCROW2":27,
+    "SRCROW2":29,
     "SRCCOLUMN2":30,
     "REFCLSNAME":"",
     "REFINTNAME":"",
